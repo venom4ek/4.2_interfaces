@@ -5,6 +5,7 @@ import ru.netology.domain.Offer;
 import ru.netology.repository.Repository;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Manager {
     private Repository repository;
@@ -37,4 +38,22 @@ public class Manager {
         Arrays.sort(result);
         return result;
     }
+
+
+
+    public Offer[] findByDepartAndArrivaAscTime(String departure, String arrival, Comparator<Offer> comparator) {
+        Offer[] result = new Offer[0];
+        for (Offer offer : repository.getAll()) {
+            if (matches(offer, departure, arrival)) {
+                Offer[] temp = new Offer[result.length + 1];
+                System.arraycopy(result, 0, temp, 0, result.length);
+                temp[temp.length - 1] = offer;
+                result = temp;
+            }
+        }
+        Arrays.sort(result, comparator);
+        return result;
+    }
+
+
 }

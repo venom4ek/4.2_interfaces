@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Comparator;
 import java.util.Objects;
 
 @NoArgsConstructor
@@ -22,6 +23,17 @@ public class Offer implements Comparable<Offer> {
     public int compareTo(@NotNull Offer o) {
         return price - o.price;
     }
+
+    public class OfferByPriceAscComparator implements Comparator<Offer> {
+
+        @Override
+        public int compare(Offer o1, Offer o2) {
+            return o1.timeFlight - o2.timeFlight;
+        }
+    }
+
+
+
 
     @Override
     public int hashCode() {
