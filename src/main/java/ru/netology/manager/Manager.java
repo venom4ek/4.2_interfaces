@@ -39,9 +39,7 @@ public class Manager {
         return result;
     }
 
-
-
-    public Offer[] findByDepartAndArrivaAscTime(String departure, String arrival, Comparator<Offer> comparator) {
+    public Offer[] findByDepartAndArrivalAscTime(String departure, String arrival, Comparator<Offer> comparator) {
         Offer[] result = new Offer[0];
         for (Offer offer : repository.getAll()) {
             if (matches(offer, departure, arrival)) {
