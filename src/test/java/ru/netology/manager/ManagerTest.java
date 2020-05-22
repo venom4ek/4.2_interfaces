@@ -17,7 +17,6 @@ class ManagerTest {
     private Offer tick5 = new Offer(5, 900, "VKO", "KZN", 100);
 
     @BeforeEach
-    @Test
     public void shouldSave() {
         manager.add(tick1);
         manager.add(tick2);
@@ -44,5 +43,17 @@ class ManagerTest {
     void shouldRemoveById() {
         Offer[] expected = new Offer[]{tick1, tick3, tick4, tick5};
         assertArrayEquals(expected, repository.removeById(2));
+    }
+
+    @Test
+    void shouldFindByNoneExistItem() {
+        Offer[] actual = manager.findByDepartAndArrival("GFA", "KZN");
+        Offer[] expected = new Offer[]{};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldRemoveByNoneExistId() {
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> repository.removeById(10));
     }
 }
