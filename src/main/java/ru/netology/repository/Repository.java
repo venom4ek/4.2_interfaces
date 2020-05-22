@@ -2,6 +2,8 @@ package ru.netology.repository;
 
 import ru.netology.domain.Offer;
 
+import java.util.stream.Stream;
+
 public class Repository {
     private Offer[] offers = new Offer[0];
 
@@ -20,7 +22,7 @@ public class Repository {
 
     public Offer[] removeById(int id) {
         int length = offers.length - 1;
-        Offer[] temp = new Offer[length];
+        Offer[] temp = new Offer[offers.length - 1];
         int index = 0;
         for (Offer offer : offers) {
             if (offer.getId() != id) {

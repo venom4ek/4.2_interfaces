@@ -19,10 +19,11 @@ public class Manager {
     }
 
     public boolean matches(@NotNull Offer offer, String depart, String arrival) {
-        if (offer.getDepart().equalsIgnoreCase(depart) && offer.getArrival().equalsIgnoreCase(arrival)) {
-            return true;
-        }
-        return false;
+        return offer.getDepart().equalsIgnoreCase(depart) && offer.getArrival().equalsIgnoreCase(arrival);
+//        if (offer.getDepart().equalsIgnoreCase(depart) && offer.getArrival().equalsIgnoreCase(arrival)) {
+//            return true;
+//        }
+//        return false;
     }
 
     public Offer[] findByDepartAndArrival(String departure, String arrival) {
