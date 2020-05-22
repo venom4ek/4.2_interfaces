@@ -3,6 +3,7 @@ package ru.netology.manager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Offer;
+import ru.netology.exception.NotFoundException;
 import ru.netology.repository.Repository;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -54,6 +55,6 @@ class ManagerTest {
 
     @Test
     void shouldRemoveByNoneExistId() {
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> repository.removeById(10));
+        assertThrows(NotFoundException.class, () -> repository.removeById(10));
     }
 }
