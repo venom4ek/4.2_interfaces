@@ -19,10 +19,10 @@ public class Repository {
         return offers;
     }
 
-    private Number findById (int id) {
+    private Offer findById (int id) {
         for (Offer offer : offers) {
             if (offer.getId() == id) {
-                return id;
+                return offer;
             }
         } return null;
     }
